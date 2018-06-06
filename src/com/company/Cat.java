@@ -2,7 +2,7 @@ package com.company;
 
 public class Cat extends Pet {
 
-//    String name;
+    //    String name;
     boolean wiskers;
     boolean fur;
     int legs;
@@ -71,5 +71,42 @@ public class Cat extends Pet {
 
     public void setFurColor(String furColor) {
         this.furColor = furColor;
+
+
     }
-}
+
+    @Override
+    protected String makeSound() {
+        return "Meow";
+    }
+    protected String catYears () {
+
+        int catYears;
+
+        /*
+        0 human years= 0 cat years
+        1 human years = 19 cat years
+        2 human years - 24 cat years
+        3 + human years = (catAge - 2) * 4 + 24
+         */
+
+        switch (super.getAge()) {
+
+            case 0:
+                catYears = 0;
+                break;
+            case 1:
+                catYears = 19;
+                break;
+            case 2:
+                catYears = 24;
+                break;
+            default:
+                catYears = (super.getAge() - 2) * 4 + 24;
+                break;
+        }
+            return super.getPetName() + " is " + super.getAge() + " Human years old and " + catYears + " cat years old.";
+        }
+    }
+
+
